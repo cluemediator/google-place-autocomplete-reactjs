@@ -8,7 +8,7 @@ const GPlace = () => {
     initPlaceAPI();
   }, []);
 
-  // initialize the google place API
+  // initialize the google place autocomplete
   const initPlaceAPI = () => {
     let autocomplete = new window.google.maps.places.Autocomplete(placeInputRef.current);
     new window.google.maps.event.addListener(autocomplete, "place_changed", function () {
@@ -17,7 +17,7 @@ const GPlace = () => {
         address: place.formatted_address,
         lat: place.geometry.location.lat(),
         lng: place.geometry.location.lng()
-      })
+      });
     });
   };
 
